@@ -176,7 +176,7 @@ computeState : Dict String (Dict String Signature)
             -> Model
 computeState allSets initialSeed mState mFs =
   let
-      defaultSet = Maybe.withDefault HaskellPrelude mFs
+      defaultSet = Maybe.withDefault Plutarch mFs
       fromScratch =
         case getAnswer (Random.initialSeed initialSeed) defaultSet allSets of
           (Nothing, _)   -> FunctionsError
@@ -457,8 +457,6 @@ display sig =
       sig
         |> List.map displayElem
         |> String.concat
-
-
 
 viewGuess answer guess =
   div [A.class "guess"]
